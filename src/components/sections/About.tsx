@@ -2,132 +2,117 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+// import {
+//   siJavascript,
+//   siTypescript,
+//   siPython,
+//   siReact,
+//   siNodedotjs,
+//   siExpress,
+//   siMongodb,
+//   siCplusplus,
+//   siTailwindcss,
+//   siHtml5,
+//   siCss,
+//   siGit
+// } from 'simple-icons';
 import {
-  siJavascript,
-  siTypescript,
-  siPython,
-  siReact,
-  siNodedotjs,
-  siExpress,
-  siMongodb,
-  siCplusplus,
-  siTailwindcss,
-  siHtml5,
-  siCss,
-  siGit
-} from 'simple-icons';
+  SiJavascript,
+  SiTypescript,
+  SiPython,
+  SiReact,
+  SiNodedotjs,
+  SiExpress,
+  SiMongodb,
+  SiCplusplus,
+  SiTailwindcss,
+  SiHtml5,
+  SiCss3,
+  SiGit
+} from 'react-icons/si';
+
+import DarkVeil from "@/components/common/DarkVeil";
+import "@/components/common/DarkVeil.css";
 
 const technologies = [
   {
     name: "JavaScript",
-    icon: siJavascript,
-    color: "#F7DF1E"
+    icon: SiJavascript,
+    color: "#F7DF1E" // Changed from silver to original bright yellow
   },
   {
-    name: "TypeScript", 
-    icon: siTypescript,
+    name: "TypeScript",
+    icon: SiTypescript,
     color: "#3178C6"
   },
   {
     name: "Python",
-    icon: siPython,
+    icon: SiPython,
     color: "#3776AB"
   },
   {
     name: "React",
-    icon: siReact,
+    icon: SiReact,
     color: "#61DAFB"
   },
   {
     name: "Node.js",
-    icon: siNodedotjs,
+    icon: SiNodedotjs,
     color: "#339933"
   },
   {
     name: "Express.js",
-    icon: siExpress,
-    color: "#000000"
+    icon: SiExpress,
+    color: "#FFFFFF" // Changed from black to white for visibility
   },
   {
     name: "MongoDB",
-    icon: siMongodb,
+    icon: SiMongodb,
     color: "#47A248"
   },
   {
     name: "C++",
-    icon: siCplusplus,
+    icon: SiCplusplus,
     color: "#00599C"
   },
   {
     name: "Tailwind CSS",
-    icon: siTailwindcss,
+    icon: SiTailwindcss,
     color: "#06B6D4"
   },
   {
     name: "HTML5",
-    icon: siHtml5,
+    icon: SiHtml5,
     color: "#E34F26"
   },
   {
     name: "CSS",
-    icon: siCss,
+    icon: SiCss3,
     color: "#1572B6"
   },
   {
     name: "Git",
-    icon: siGit,
+    icon: SiGit,
     color: "#F05032"
   },
 ];
 
 export default function About() {
   return (
-    <section
-      id="about"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-black via-gray-900 to-black py-20"
-    >
-      {/* Same background effects as Hero */}
-      <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-blue-500/[0.05] to-transparent" />
-
-      {/* Grid pattern */}
-      <div
-        className="absolute inset-0 opacity-10"
-        style={{
-          backgroundImage:
-            'radial-gradient(circle, rgba(255, 255, 255, 0.03) 1px, transparent 1px)',
-          backgroundSize: '60px 60px',
-        }}
-      />
-
-      {/* Floating orbs */}
+    <section id="about" className="relative min-h-screen flex items-center justify-center overflow-hidden py-20">
+      {/* DarkVeil Background */}
       <div className="absolute inset-0">
-        <motion.div
-          animate={{
-            x: [0, 60, 0],
-            y: [0, -60, 0],
-          }}
-          transition={{
-            duration: 30,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          className="absolute top-1/4 right-1/4 w-64 h-64 bg-purple-500/[0.08] rounded-full blur-3xl"
-        />
-        <motion.div
-          animate={{
-            x: [0, -60, 0],
-            y: [0, 60, 0],
-          }}
-          transition={{
-            duration: 35,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          className="absolute bottom-1/4 left-1/4 w-72 h-72 bg-blue-500/[0.08] rounded-full blur-3xl"
+        <DarkVeil 
+          noiseIntensity={0.03}
+          scanlineIntensity={0.08}
+          scanlineFrequency={0.06}
+          warpAmount={0.05}
+          resolutionScale={1}
         />
       </div>
 
-      <div className="relative z-10 container mx-auto px-4">
+      {/* Content overlay */}
+      <div className="relative z-10 container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -136,22 +121,22 @@ export default function About() {
           className="text-center max-w-4xl mx-auto"
         >
           {/* Title */}
-          <h2 className="text-4xl md:text-6xl font-medium text-white mb-8">
+          <h2 className="text-4xl md:text-6xl font-medium text-white mb-8 drop-shadow-lg">
             <span className="bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent">
               About Me
             </span>
           </h2>
-
+          
           {/* Divider */}
-          <div className="w-20 h-[2px] bg-gradient-to-r from-transparent via-blue-400 to-transparent mx-auto mb-12 rounded-full" />
-
+          <div className="w-20 h-[2px] bg-gradient-to-r from-transparent via-white/60 to-transparent mx-auto mb-12 rounded-full shadow-lg" />
+          
           {/* Description */}
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="text-lg text-gray-200 max-w-3xl mx-auto leading-relaxed mb-16"
+            className="text-lg text-gray-200 max-w-3xl mx-auto leading-relaxed mb-16 drop-shadow-md"
           >
             I'm a passionate full-stack developer with expertise in modern web
             technologies. I love creating beautiful, functional applications that
@@ -160,13 +145,13 @@ export default function About() {
             multiple technologies and frameworks.
           </motion.p>
 
-          {/* Technology Grid */}
+          {/* Technology Grid - Clean icons with enhanced visibility */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
-            className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 max-w-3xl mx-auto"
+            className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 max-w-3xl mx-auto mb-16"
           >
             {technologies.map((tech, index) => (
               <motion.div
@@ -180,33 +165,20 @@ export default function About() {
                   stiffness: 100,
                 }}
                 whileHover={{
-                  scale: 1.1,
-                  y: -5,
+                  scale: 1.2,
+                  y: -8,
                   transition: { duration: 0.2 },
                 }}
                 viewport={{ once: true }}
-                className="group relative"
+                className="group flex flex-col items-center space-y-3"
               >
-                <div className="bg-white/[0.05] backdrop-blur-sm border border-white/[0.1] rounded-lg p-4 text-center hover:bg-white/[0.08] hover:border-white/[0.2] transition-all duration-300">
-                  <div className="flex justify-center mb-2 group-hover:scale-110 transition-transform duration-300">
-                    <div 
-                      className="w-8 h-8 flex items-center justify-center"
-                      style={{ color: tech.color }}
-                      dangerouslySetInnerHTML={{ __html: tech.icon.svg }}
-                    />
-                  </div>
-                  <div className="text-xs text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
-                    {tech.name}
-                  </div>
-                </div>
+               <div className="w-12 h-12 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 drop-shadow-lg filter brightness-110 contrast-110">
+  <tech.icon size={42} color={tech.color} />
+</div>
 
-                {/* Hover glow effect */}
-                <div 
-                  className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-20 transition-opacity duration-300 blur-sm"
-                  style={{ 
-                    background: `linear-gradient(to right, ${tech.color}00, ${tech.color}40, ${tech.color}00)` 
-                  }}
-                />
+                <div className="text-xs text-gray-400 group-hover:text-gray-200 transition-colors duration-300 text-center font-medium drop-shadow-sm">
+                  {tech.name}
+                </div>
               </motion.div>
             ))}
           </motion.div>
@@ -217,9 +189,9 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
             viewport={{ once: true }}
-            className="mt-16 text-center"
+            className="text-center"
           >
-            <p className="text-gray-400 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-gray-400 max-w-2xl mx-auto leading-relaxed drop-shadow-sm">
               Always eager to learn new technologies and take on challenging
               projects. Let's build something amazing together!
             </p>
