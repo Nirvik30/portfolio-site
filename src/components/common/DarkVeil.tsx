@@ -81,7 +81,7 @@ export default function DarkVeil({
   speed = 0.5,
   scanlineFrequency = 0,
   warpAmount = 0,
-  resolutionScale = 0.5,
+  resolutionScale = 1,
 }) {
   const ref = useRef<HTMLCanvasElement | null>(null);
 

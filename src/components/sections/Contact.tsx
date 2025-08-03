@@ -64,8 +64,8 @@ export default function Contact() {
       {/* DarkVeil Background - positioned absolutely to cover full section */}
       <div className="absolute inset-0">
         <DarkVeil 
-          noiseIntensity={0.04}
-          scanlineIntensity={0.10}
+          noiseIntensity={0.03}
+          scanlineIntensity={0.08}
           scanlineFrequency={0.07}
           warpAmount={0.06}
           resolutionScale={0.5}

@@ -40,7 +40,7 @@ export default function Projects() {
       <div className="absolute inset-0">
         <DarkVeil 
           noiseIntensity={0.04}
-          scanlineIntensity={0.09}
+          scanlineIntensity={0.08}
           scanlineFrequency={0.06}
           warpAmount={0.05}
           resolutionScale={0.5}  // Adjusted resolution scale for better performance
