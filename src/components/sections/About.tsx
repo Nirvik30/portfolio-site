@@ -2,20 +2,6 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-// import {
-//   siJavascript,
-//   siTypescript,
-//   siPython,
-//   siReact,
-//   siNodedotjs,
-//   siExpress,
-//   siMongodb,
-//   siCplusplus,
-//   siTailwindcss,
-//   siHtml5,
-//   siCss,
-//   siGit
-// } from 'simple-icons';
 import {
   SiJavascript,
   SiTypescript,
@@ -30,7 +16,6 @@ import {
   SiCss3,
   SiGit
 } from 'react-icons/si';
-
 import DarkVeil from "@/components/common/DarkVeil";
 import "@/components/common/DarkVeil.css";
 
@@ -38,7 +23,7 @@ const technologies = [
   {
     name: "JavaScript",
     icon: SiJavascript,
-    color: "#F7DF1E" // Changed from silver to original bright yellow
+    color: "#F7DF1E" // Bright yellow for visibility
   },
   {
     name: "TypeScript",
@@ -145,7 +130,7 @@ export default function About() {
             multiple technologies and frameworks.
           </motion.p>
 
-          {/* Technology Grid - Clean icons with enhanced visibility */}
+          {/* Technology Grid - Enhanced visibility */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -172,10 +157,12 @@ export default function About() {
                 viewport={{ once: true }}
                 className="group flex flex-col items-center space-y-3"
               >
-               <div className="w-12 h-12 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 drop-shadow-lg filter brightness-110 contrast-110">
-  <tech.icon size={42} color={tech.color} />
-</div>
-
+                <div 
+                  className="w-12 h-12 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 drop-shadow-lg"
+                  style={{ filter: "drop-shadow(0 0 8px rgba(255,255,255,0.2))" }}
+                >
+                  <tech.icon size={42} color={tech.color} />
+                </div>
                 <div className="text-xs text-gray-400 group-hover:text-gray-200 transition-colors duration-300 text-center font-medium drop-shadow-sm">
                   {tech.name}
                 </div>
