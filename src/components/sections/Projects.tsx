@@ -43,7 +43,7 @@ export default function Projects() {
           scanlineIntensity={0.09}
           scanlineFrequency={0.06}
           warpAmount={0.05}
-          resolutionScale={1}
+          resolutionScale={0.5}  // Adjusted resolution scale for better performance
         />
       </div>
 

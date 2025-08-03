@@ -92,7 +92,7 @@ export default function About() {
           scanlineIntensity={0.08}
           scanlineFrequency={0.06}
           warpAmount={0.05}
-          resolutionScale={1}
+          resolutionScale={0.5}
         />
       </div>
 

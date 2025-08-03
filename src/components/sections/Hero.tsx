@@ -30,7 +30,7 @@ export default function Hero() {
           scanlineIntensity={0.08}
           scanlineFrequency={0.05}
           warpAmount={0.04}
-          resolutionScale={1}
+          resolutionScale={0.5}
         />
       </div>
 
