@@ -68,7 +68,7 @@ export default function Contact() {
           scanlineIntensity={0.08}
           scanlineFrequency={0.07}
           warpAmount={0.06}
-          resolutionScale={0.5}
+          resolutionScale={1} // Adjusted resolution scale for better performance
         />
       </div>
 
