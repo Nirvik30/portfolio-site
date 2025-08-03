@@ -138,7 +138,7 @@ export default function About() {
             viewport={{ once: true }}
             className="text-lg text-gray-200 max-w-3xl mx-auto leading-relaxed mb-16 drop-shadow-md"
           >
-            I'm a passionate full-stack developer with expertise in modern web
+            I&apos;m a passionate full-stack developer with expertise in modern web
             technologies. I love creating beautiful, functional applications that
             solve real-world problems and provide exceptional user experiences. My
             journey in development has equipped me with a diverse skill set across
@@ -193,7 +193,7 @@ export default function About() {
           >
             <p className="text-gray-400 max-w-2xl mx-auto leading-relaxed drop-shadow-sm">
               Always eager to learn new technologies and take on challenging
-              projects. Let's build something amazing together!
+              projects. Let&apos;s build something amazing together!
             </p>
           </motion.div>
         </motion.div>

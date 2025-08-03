@@ -102,33 +102,40 @@ export default function Contact() {
             viewport={{ once: true }}
             className="grid md:grid-cols-3 gap-8 mb-20"
           >
-            {contactMethods.map((method, index) => (
-              <motion.a
-                key={method.label}
-                href={method.href}
-                target={method.label === "Location" ? "_blank" : undefined}
-                rel={method.label === "Location" ? "noopener noreferrer" : undefined}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
-                whileHover={{ y: -4, scale: 1.02 }}
-                viewport={{ once: true }}
-                className="group p-8 bg-white/[0.08] backdrop-blur-md border border-white/[0.15] rounded-2xl hover:bg-white/[0.12] hover:border-white/[0.25] transition-all duration-300"
-              >
-                <div className="flex flex-col items-center text-center space-y-4">
-                  <div className="p-4 bg-white/[0.1] rounded-xl group-hover:bg-white/[0.15] transition-all duration-300">
-                    <method.icon className="w-7 h-7 text-white" />
-                  </div>
-                  <div>
-                    <p className="text-gray-400 text-sm mb-2 uppercase tracking-wider font-medium">{method.label}</p>
-                    <p className="text-white font-medium text-lg">{method.value}</p>
-                  </div>
-                  {method.label === "Location" && (
-                    <ExternalLink className="w-4 h-4 text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  )}
-                </div>
-              </motion.a>
-            ))}
+            {contactMethods.map((method, index) => {
+  // Only open Location in new tab; Email/Phone open with default protocol
+  const opensInNewTab = method.label === "Location";
+  return (
+    <motion.a
+      key={method.label}
+      href={method.href}
+      target={opensInNewTab ? "_blank" : undefined} // only Location opens in new tab
+      rel={opensInNewTab ? "noopener noreferrer" : undefined}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
+      whileHover={{ y: -4, scale: 1.02 }}
+      viewport={{ once: true }}
+      className="group p-8 bg-white/[0.08] backdrop-blur-md border border-white/[0.15] rounded-2xl hover:bg-white/[0.12] hover:border-white/[0.25] transition-all duration-300"
+    >
+      <div className="flex flex-col items-center text-center space-y-4">
+        <div className="p-4 bg-white/[0.1] rounded-xl group-hover:bg-white/[0.15] transition-all duration-300">
+          <method.icon className="w-7 h-7 text-white" />
+        </div>
+        <div>
+          <p className="text-gray-400 text-sm mb-2 uppercase tracking-wider font-medium">
+            {method.label}
+          </p>
+          <p className="text-white font-medium text-lg">{method.value}</p>
+        </div>
+        {method.label === "Location" && (
+          <ExternalLink className="w-4 h-4 text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        )}
+      </div>
+    </motion.a>
+  );
+})}
+
           </motion.div>
 
           {/* Social Links */}
@@ -172,7 +179,7 @@ export default function Contact() {
           >
             <div className="inline-block p-6 bg-white/[0.04] backdrop-blur-sm border border-white/[0.08] rounded-2xl">
               <p className="text-gray-300 text-lg font-medium">
-                Let's discuss your next project
+                Let&apos;s discuss your next project
               </p>
               <p className="text-gray-500 text-sm mt-2">
                 Ready to bring your ideas to life
