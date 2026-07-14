@@ -80,28 +80,27 @@ export default function FloatingNav() {
             );
           })}
         </nav>
-        <div className="nav-actions">
-          <button
-            className="theme-toggle"
-            type="button"
-            onClick={toggleTheme}
-            aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
-          >
-            <span key={theme} className="theme-toggle-icon" aria-hidden="true">
-              {theme === "dark" ? <Sun /> : <Moon />}
-            </span>
-          </button>
-          <button
-            className="menu-toggle"
-            type="button"
-            onClick={() => setMenuOpen((current) => !current)}
-            aria-label={menuOpen ? "Close navigation" : "Open navigation"}
-            aria-expanded={menuOpen}
-          >
-            {menuOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
-          </button>
-        </div>
+        <button
+          className="menu-toggle"
+          type="button"
+          onClick={() => setMenuOpen((current) => !current)}
+          aria-label={menuOpen ? "Close navigation" : "Open navigation"}
+          aria-expanded={menuOpen}
+        >
+          {menuOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
+        </button>
       </header>
+
+      <button
+        className="theme-toggle theme-toggle-floating"
+        type="button"
+        onClick={toggleTheme}
+        aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
+      >
+        <span key={theme} className="theme-toggle-icon" aria-hidden="true">
+          {theme === "dark" ? <Sun /> : <Moon />}
+        </span>
+      </button>
     </>
   );
 }

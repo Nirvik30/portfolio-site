@@ -15,7 +15,6 @@ export default function Hero() {
             sizes="68px"
             priority
           />
-          <i />
         </Reveal>
 
         <Reveal delay={0.06}>
