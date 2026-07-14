@@ -35,7 +35,6 @@ export default function About() {
           </div>
           <div className="education-meta">
             <span>2026</span>
-            <strong>8.02 CGPA</strong>
           </div>
         </Reveal>
       </div>

@@ -344,6 +344,14 @@ svg {
   transition: transform 160ms ease;
 }
 
+.github-icon {
+  width: 0.86rem;
+  height: 0.86rem;
+  flex: 0 0 auto;
+  background: currentColor;
+  mask: url("/github-mark.svg") center / contain no-repeat;
+}
+
 .hero-links a:hover svg {
   transform: translate(2px, -2px);
 }

@@ -1,4 +1,4 @@
-import { ArrowDownRight, ArrowUpRight } from "lucide-react";
+import { ArrowDownRight, Mail } from "lucide-react";
 import Reveal from "@/components/common/Reveal";
 import { links } from "@/data/portfolio";
 
@@ -26,10 +26,10 @@ export default function Hero() {
 
         <Reveal delay={0.18} className="hero-links">
           <a href={links.gmail} target="_blank" rel="noreferrer">
-            Email <ArrowUpRight aria-hidden="true" />
+            <Mail aria-hidden="true" /> Email
           </a>
           <a href={links.github} target="_blank" rel="noreferrer">
-            GitHub <ArrowUpRight aria-hidden="true" />
+            <span className="github-icon" aria-hidden="true" /> GitHub
           </a>
           <a href="#work">
             Selected work <ArrowDownRight aria-hidden="true" />
