@@ -12,7 +12,7 @@ export default function Hero() {
             src="/nirvik-profile.png"
             alt="Portrait of Nirvik Acharekar by the coast"
             fill
-            sizes="68px"
+            sizes="84px"
             priority
           />
         </Reveal>

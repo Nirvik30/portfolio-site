@@ -27,6 +27,11 @@ export default function FloatingNav() {
 
     const observer = new IntersectionObserver(
       (entries) => {
+        if (window.scrollY <= 96) {
+          setActiveSection("home");
+          return;
+        }
+
         const visible = entries
           .filter((entry) => entry.isIntersecting)
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
@@ -38,6 +43,16 @@ export default function FloatingNav() {
 
     sections.forEach((section) => observer.observe(section));
     return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const keepHomeActiveAtTop = () => {
+      if (window.scrollY <= 96) setActiveSection("home");
+    };
+
+    keepHomeActiveAtTop();
+    window.addEventListener("scroll", keepHomeActiveAtTop, { passive: true });
+    return () => window.removeEventListener("scroll", keepHomeActiveAtTop);
   }, []);
 
   useEffect(() => {

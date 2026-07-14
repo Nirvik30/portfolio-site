@@ -246,8 +246,8 @@ svg {
 .hero-mark {
   position: relative;
   display: grid;
-  width: 4.2rem;
-  height: 4.2rem;
+  width: 5.25rem;
+  height: 5.25rem;
   margin-bottom: 2.4rem;
   place-items: center;
   overflow: hidden;
@@ -789,8 +789,8 @@ svg {
   }
 
   .hero-mark {
-    width: 3.8rem;
-    height: 3.8rem;
+    width: 4.75rem;
+    height: 4.75rem;
     margin-bottom: 2rem;
   }
 
