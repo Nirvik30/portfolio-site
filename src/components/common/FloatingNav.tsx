@@ -15,7 +15,7 @@ export default function FloatingNav() {
     document.documentElement.dataset.theme = initialTheme;
     document
       .querySelector('meta[name="theme-color"]')
-      ?.setAttribute("content", initialTheme === "dark" ? "#0c0c0d" : "#f7f7f5");
+      ?.setAttribute("content", initialTheme === "dark" ? "#0c0c0d" : "#e9e3d8");
     const frame = window.requestAnimationFrame(() => setTheme(initialTheme));
     return () => window.cancelAnimationFrame(frame);
   }, []);
@@ -55,7 +55,7 @@ export default function FloatingNav() {
     root.dataset.theme = nextTheme;
     document
       .querySelector('meta[name="theme-color"]')
-      ?.setAttribute("content", nextTheme === "dark" ? "#0c0c0d" : "#f7f7f5");
+      ?.setAttribute("content", nextTheme === "dark" ? "#0c0c0d" : "#e9e3d8");
     window.localStorage.setItem("portfolio-theme", nextTheme);
     setTheme(nextTheme);
     window.setTimeout(() => root.classList.remove("theme-changing"), 420);
@@ -85,6 +85,16 @@ export default function FloatingNav() {
       </nav>
 
       <div className="nav-actions">
+        <a
+          className="nav-social"
+          href={links.github}
+          target="_blank"
+          rel="noreferrer"
+          aria-label="GitHub profile"
+        >
+          <span aria-hidden="true">GH</span>
+        </a>
+
         <button
           className="theme-toggle"
           type="button"
@@ -97,7 +107,7 @@ export default function FloatingNav() {
         </button>
 
         <a className="header-cta" href={links.gmail} target="_blank" rel="noreferrer">
-          Email me <ArrowUpRight aria-hidden="true" />
+          Let&apos;s talk <ArrowUpRight aria-hidden="true" />
         </a>
 
         <button

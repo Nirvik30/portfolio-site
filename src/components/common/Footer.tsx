@@ -1,5 +1,5 @@
 import { ArrowUp } from "lucide-react";
-import { navigation } from "@/data/portfolio";
+import { links, navigation } from "@/data/portfolio";
 
 export default function Footer() {
   return (
@@ -15,6 +15,9 @@ export default function Footer() {
       </nav>
       <div className="footer-end">
         <span>© {new Date().getFullYear()} · Mumbai, India</span>
+        <a href={links.github} target="_blank" rel="noreferrer" aria-label="GitHub profile">
+          <span aria-hidden="true">GH</span>
+        </a>
         <a href="#home" aria-label="Back to top"><ArrowUp aria-hidden="true" /></a>
       </div>
     </footer>

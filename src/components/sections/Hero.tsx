@@ -20,7 +20,7 @@ export default function Hero() {
           </p>
           <div className="hero-actions">
             <a className="button button-dark" href="#work">
-              View selected work <ArrowDown aria-hidden="true" />
+              <span>View selected work</span><ArrowDown aria-hidden="true" />
             </a>
             <a className="text-link" href={links.gmail} target="_blank" rel="noreferrer">
               Contact me <ArrowUpRight aria-hidden="true" />
@@ -32,7 +32,13 @@ export default function Hero() {
       <div className="hero-footer" aria-label="Professional summary">
         <div><span>Based in</span><strong>Mumbai, India</strong></div>
         <div><span>Current role</span><strong>Full-stack developer intern</strong></div>
-        <div><span>Availability</span><strong>Open to opportunities</strong></div>
+        <div className="hero-socials">
+          <span>Connect</span>
+          <strong>
+            <a href={links.github} target="_blank" rel="noreferrer">GitHub</a>
+            <a href={links.gmail} target="_blank" rel="noreferrer">Email</a>
+          </strong>
+        </div>
       </div>
     </section>
   );

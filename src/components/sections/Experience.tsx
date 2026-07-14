@@ -9,7 +9,7 @@ export default function Experience() {
         <p>Professional experience across product development and implementation.</p>
       </Reveal>
 
-      <Reveal>
+      <Reveal className="experience-content">
         <article className="experience-row">
           <div>
             <span>Company</span>
