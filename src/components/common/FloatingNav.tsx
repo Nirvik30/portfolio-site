@@ -1,97 +1,77 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import { cn } from "@/lib/utils";
-
-const navItems = [
-  { name: "Home", link: "#home" },
-  { name: "About", link: "#about" },
-  { name: "Projects", link: "#projects" },
-  { name: "Contact", link: "#contact" },
-];
+import { useEffect, useState } from "react";
+import { ArrowUpRight, Menu, X } from "lucide-react";
+import { links, navigation } from "@/data/portfolio";
 
 export default function FloatingNav() {
   const [activeSection, setActiveSection] = useState("home");
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const sections = navItems.map((item) => item.link.replace("#", ""));
-      const currentSection = sections.find((section) => {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          return rect.top <= 100 && rect.bottom >= 100;
-        }
-        return false;
-      });
+    const sections = navigation
+      .map(({ href }) => document.querySelector<HTMLElement>(href))
+      .filter((section): section is HTMLElement => Boolean(section));
 
-      if (currentSection) {
-        setActiveSection(currentSection);
-      }
-    };
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+        if (visible?.target.id) setActiveSection(visible.target.id);
+      },
+      { rootMargin: "-30% 0px -55%", threshold: [0, 0.2, 0.5, 0.8] },
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId.replace("#", ""));
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-      setActiveSection(sectionId.replace("#", ""));
-    }
-  };
+  useEffect(() => {
+    document.body.dataset.menuOpen = String(menuOpen);
+    return () => {
+      delete document.body.dataset.menuOpen;
+    };
+  }, [menuOpen]);
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: -50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      className="fixed top-6 left-1/2 transform -translate-x-1/2 z-[5000]"
-    >
-      <div className="flex items-center justify-center px-6 py-3 border border-white/10 rounded-full bg-black/20 backdrop-blur-xl shadow-2xl">
-        <div className="flex items-center space-x-1">
-          {navItems.map((navItem, idx) => (
-            <button
-              key={`link-${idx}`}
-              onClick={() => scrollToSection(navItem.link)}
-              className={cn(
-                "relative px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 hover:scale-105",
-                activeSection === navItem.link.replace("#", "")
-                  ? "bg-gradient-to-r from-purple-600 to-purple-800 text-white shadow-lg"
-                  : "text-white/70 hover:text-white hover:bg-white/5"
-              )}
+    <header className="site-header">
+      <a className="brand-mark" href="#home" aria-label="Nirvik Acharekar, home">
+        <span>NA</span>
+        <span className="brand-copy">Nirvik Acharekar</span>
+      </a>
+
+      <nav className={menuOpen ? "site-nav is-open" : "site-nav"} aria-label="Main navigation">
+        {navigation.map((item) => {
+          const section = item.href.slice(1);
+          return (
+            <a
+              key={item.href}
+              href={item.href}
+              className={activeSection === section ? "is-active" : undefined}
+              aria-current={activeSection === section ? "page" : undefined}
+              onClick={() => setMenuOpen(false)}
             >
-              <motion.span
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.2 }}
-                className={cn(
-                  "relative z-10 font-semibold",
-                  activeSection === navItem.link.replace("#", "")
-                    ? "text-white"
-                    : "text-white/70"
-                )}
-              >
-                {navItem.name}
-              </motion.span>
+              {item.label}
+            </a>
+          );
+        })}
+      </nav>
 
-              {/* Active indicator */}
-              {activeSection === navItem.link.replace("#", "") && (
-                <motion.div
-                  layoutId="activeTab"
-                  className="absolute inset-0 bg-gradient-to-r from-purple-600 to-purple-800 rounded-full"
-                  initial={false}
-                  transition={{ type: "spring", stiffness: 500, damping: 30 }}
-                />
-              )}
+      <a className="header-cta" href={links.email}>
+        Let&apos;s talk <ArrowUpRight aria-hidden="true" />
+      </a>
 
-              {/* Hover glow effect */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-600/0 to-purple-800/0 opacity-0 transition-opacity duration-300 hover:opacity-20" />
-            </button>
-          ))}
-        </div>
-      </div>
-    </motion.div>
+      <button
+        className="menu-toggle"
+        type="button"
+        onClick={() => setMenuOpen((current) => !current)}
+        aria-label={menuOpen ? "Close navigation" : "Open navigation"}
+        aria-expanded={menuOpen}
+      >
+        {menuOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
+      </button>
+    </header>
   );
 }

@@ -8,11 +8,12 @@ import Footer from "@/components/common/Footer";
 export default function Home() {
   return (
     <>
+      <a className="skip-link" href="#main-content">Skip to content</a>
       <FloatingNav />
-      <main className="relative">
+      <main id="main-content">
         <Hero />
-        <About />
         <Projects />
+        <About />
         <Contact />
       </main>
       <Footer />
