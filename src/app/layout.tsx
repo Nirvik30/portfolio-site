@@ -52,8 +52,8 @@ export async function generateMetadata(): Promise<Metadata> {
       images: [
         {
           url: socialImage,
-          width: 1734,
-          height: 907,
+          width: 1732,
+          height: 908,
           alt: "Nirvik Acharekar — Product designer & developer",
         },
       ],
@@ -69,7 +69,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export const viewport: Viewport = {
-  themeColor: "#f7f7f4",
+  themeColor: "#0c0c0d",
   colorScheme: "light",
 };
 
@@ -79,7 +79,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "try{if(localStorage.getItem('portfolio-theme')==='light'){document.documentElement.dataset.theme='light'}}catch(e){}",
+          }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

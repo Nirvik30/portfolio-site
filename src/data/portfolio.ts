@@ -2,6 +2,7 @@ export const navigation = [
   { label: "Home", href: "#home" },
   { label: "Work", href: "#work" },
   { label: "About", href: "#about" },
+  { label: "Experience", href: "#experience" },
   { label: "Contact", href: "#contact" },
 ] as const;
 
@@ -48,39 +49,6 @@ export const projects = [
     description: "Motion-led portfolio website for a multidisciplinary studio.",
     href: "https://www.orcaadesigns.com/",
   },
-] as const;
-
-export const capabilities = [
-  {
-    number: "01",
-    title: "Product interfaces",
-    description:
-      "Responsive, accessible interfaces shaped around clear user journeys and strong visual hierarchy.",
-  },
-  {
-    number: "02",
-    title: "Full-stack systems",
-    description:
-      "End-to-end applications that connect polished frontends to practical APIs, data, and authentication.",
-  },
-  {
-    number: "03",
-    title: "Rapid prototyping",
-    description:
-      "Fast, intentional experiments that turn rough product ideas into something people can actually use.",
-  },
-] as const;
-
-export const stack = [
-  "TypeScript",
-  "React",
-  "Next.js",
-  "Node.js",
-  "Python",
-  "Supabase",
-  "MongoDB",
-  "Tailwind CSS",
-  "Git",
 ] as const;
 
 export const links = {

@@ -1,5 +1,4 @@
 import Reveal from "@/components/common/Reveal";
-import { capabilities, stack } from "@/data/portfolio";
 
 export default function About() {
   return (
@@ -7,7 +6,7 @@ export default function About() {
       <Reveal className="section-heading">
         <p className="section-index">02 / About</p>
         <h2>About me</h2>
-        <p>A short introduction to how I work and what I bring to a product.</p>
+        <p>A concise overview of my approach and education.</p>
       </Reveal>
 
       <div className="about-intro">
@@ -35,33 +34,14 @@ export default function About() {
       <Reveal className="education-card">
         <div>
           <span>Education</span>
-          <span>Undergraduate degree</span>
+          <span>University of Mumbai</span>
         </div>
         <h3>Bachelor of Engineering</h3>
         <p>Information Technology</p>
-        <strong>8.02 CGPA</strong>
-      </Reveal>
-
-      <div className="capability-grid">
-        {capabilities.map((capability, index) => (
-          <Reveal key={capability.title} delay={index * 0.05} className="capability-card">
-            <span>{capability.number}</span>
-            <h3>{capability.title}</h3>
-            <p>{capability.description}</p>
-          </Reveal>
-        ))}
-      </div>
-
-      <Reveal className="stack-panel">
-        <div className="stack-heading">
-          <span>Core toolkit</span>
-          <span>Selected technologies</span>
+        <div className="education-meta">
+          <span>2026</span>
+          <strong>8.02 CGPA</strong>
         </div>
-        <ul>
-          {stack.map((technology) => (
-            <li key={technology}>{technology}</li>
-          ))}
-        </ul>
       </Reveal>
     </section>
   );

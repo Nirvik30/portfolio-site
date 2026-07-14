@@ -7,7 +7,7 @@ export default function Contact() {
     <section id="contact" className="contact section-shell">
       <Reveal className="contact-card">
         <div className="contact-topline">
-          <p className="section-index">03 / Contact</p>
+          <p className="section-index">04 / Contact</p>
           <span><i /> Available for projects</span>
         </div>
 

@@ -1,12 +1,24 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ArrowUpRight, Menu, X } from "lucide-react";
+import { ArrowUpRight, Menu, Moon, Sun, X } from "lucide-react";
 import { links, navigation } from "@/data/portfolio";
 
 export default function FloatingNav() {
   const [activeSection, setActiveSection] = useState("home");
   const [menuOpen, setMenuOpen] = useState(false);
+  const [theme, setTheme] = useState<"dark" | "light">("dark");
+
+  useEffect(() => {
+    const storedTheme = window.localStorage.getItem("portfolio-theme");
+    const initialTheme = storedTheme === "light" ? "light" : "dark";
+    document.documentElement.dataset.theme = initialTheme;
+    document
+      .querySelector('meta[name="theme-color"]')
+      ?.setAttribute("content", initialTheme === "dark" ? "#0c0c0d" : "#f7f7f5");
+    const frame = window.requestAnimationFrame(() => setTheme(initialTheme));
+    return () => window.cancelAnimationFrame(frame);
+  }, []);
 
   useEffect(() => {
     const sections = navigation
@@ -35,6 +47,20 @@ export default function FloatingNav() {
     };
   }, [menuOpen]);
 
+  const toggleTheme = () => {
+    const nextTheme = theme === "dark" ? "light" : "dark";
+    const root = document.documentElement;
+
+    root.classList.add("theme-changing");
+    root.dataset.theme = nextTheme;
+    document
+      .querySelector('meta[name="theme-color"]')
+      ?.setAttribute("content", nextTheme === "dark" ? "#0c0c0d" : "#f7f7f5");
+    window.localStorage.setItem("portfolio-theme", nextTheme);
+    setTheme(nextTheme);
+    window.setTimeout(() => root.classList.remove("theme-changing"), 420);
+  };
+
   return (
     <header className="site-header">
       <a className="nav-home" href="#home" aria-label="Back to home">
@@ -58,19 +84,32 @@ export default function FloatingNav() {
         })}
       </nav>
 
-      <a className="header-cta" href={links.gmail} target="_blank" rel="noreferrer">
-        Email me <ArrowUpRight aria-hidden="true" />
-      </a>
+      <div className="nav-actions">
+        <button
+          className="theme-toggle"
+          type="button"
+          onClick={toggleTheme}
+          aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
+        >
+          <span key={theme} className="theme-toggle-icon" aria-hidden="true">
+            {theme === "dark" ? <Sun /> : <Moon />}
+          </span>
+        </button>
 
-      <button
-        className="menu-toggle"
-        type="button"
-        onClick={() => setMenuOpen((current) => !current)}
-        aria-label={menuOpen ? "Close navigation" : "Open navigation"}
-        aria-expanded={menuOpen}
-      >
-        {menuOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
-      </button>
+        <a className="header-cta" href={links.gmail} target="_blank" rel="noreferrer">
+          Email me <ArrowUpRight aria-hidden="true" />
+        </a>
+
+        <button
+          className="menu-toggle"
+          type="button"
+          onClick={() => setMenuOpen((current) => !current)}
+          aria-label={menuOpen ? "Close navigation" : "Open navigation"}
+          aria-expanded={menuOpen}
+        >
+          {menuOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
+        </button>
+      </div>
     </header>
   );
 }

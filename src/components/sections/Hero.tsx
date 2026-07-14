@@ -7,17 +7,16 @@ export default function Hero() {
     <section id="home" className="hero section-shell">
       <div className="hero-copy">
         <Reveal>
-          <p className="eyebrow">Nirvik Acharekar · Mumbai, India</p>
+          <p className="eyebrow">Product designer · Full-stack developer</p>
         </Reveal>
 
         <Reveal delay={0.08}>
-          <h1>Product designer and developer building useful digital products.</h1>
+          <h1>Nirvik Acharekar</h1>
         </Reveal>
 
         <Reveal delay={0.16} className="hero-intro-row">
           <p className="hero-intro">
-            I work across product design and full-stack development to turn ideas
-            into clear, dependable web experiences.
+            I design and build clear, dependable digital products from Mumbai.
           </p>
           <div className="hero-actions">
             <a className="button button-dark" href="#work">
@@ -31,9 +30,9 @@ export default function Hero() {
       </div>
 
       <div className="hero-footer" aria-label="Professional summary">
-        <div><span>Focus</span><strong>Design &amp; engineering</strong></div>
-        <div><span>Experience</span><strong>Web products &amp; systems</strong></div>
-        <div><span>Availability</span><strong>Open to good work</strong></div>
+        <div><span>Based in</span><strong>Mumbai, India</strong></div>
+        <div><span>Current role</span><strong>Full-stack developer intern</strong></div>
+        <div><span>Availability</span><strong>Open to opportunities</strong></div>
       </div>
     </section>
   );
