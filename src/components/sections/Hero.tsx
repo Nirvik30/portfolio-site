@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ArrowDownRight, Mail } from "lucide-react";
 import Reveal from "@/components/common/Reveal";
 import { links } from "@/data/portfolio";
@@ -7,7 +8,13 @@ export default function Hero() {
     <section id="home" className="hero section-shell">
       <div className="content-column">
         <Reveal className="hero-mark">
-          <span aria-hidden="true">NA</span>
+          <Image
+            src="/nirvik-profile.png"
+            alt="Portrait of Nirvik Acharekar by the coast"
+            fill
+            sizes="68px"
+            priority
+          />
           <i />
         </Reveal>
 

@@ -138,11 +138,11 @@ svg {
   top: 1rem;
   left: 50%;
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: 1fr auto;
   align-items: center;
   width: min(calc(100% - 2rem), 45rem);
   min-height: 3.15rem;
-  padding: 0.35rem 0.4rem 0.35rem 0.9rem;
+  padding: 0.35rem 0.4rem 0.35rem 1rem;
   transform: translateX(-50%);
   border: 1px solid color-mix(in srgb, var(--line) 76%, transparent);
   border-radius: 1rem;
@@ -151,22 +151,10 @@ svg {
   backdrop-filter: blur(18px) saturate(130%);
 }
 
-.nav-home {
-  display: inline-grid;
-  width: 2rem;
-  height: 2rem;
-  place-items: center;
-  border-radius: 0.6rem;
-  background: var(--ink);
-  color: var(--page);
-  font: 650 0.66rem/1 var(--mono);
-  letter-spacing: -0.04em;
-}
-
 .site-nav {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 1.35rem;
 }
 
@@ -269,15 +257,20 @@ svg {
 
 .hero-mark::before {
   position: absolute;
-  inset: 0.45rem;
-  border: 1px solid var(--line);
-  border-radius: 0.95rem;
+  inset: 0;
+  z-index: 1;
+  border: 1px solid color-mix(in srgb, white 32%, transparent);
+  border-radius: inherit;
+  box-shadow: inset 0 -1rem 1.8rem rgba(0, 0, 0, 0.12);
   content: "";
+  pointer-events: none;
 }
 
-.hero-mark span {
-  position: relative;
-  z-index: 1;
+.hero-mark img {
+  object-fit: cover;
+  object-position: 66% 43%;
+  transform: scale(1.44);
+  filter: grayscale(1) contrast(1.05);
 }
 
 .hero-mark i {

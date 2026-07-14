@@ -64,7 +64,6 @@ export default function FloatingNav() {
   return (
     <>
       <header className="site-header">
-        <a className="nav-home" href="#home" aria-label="Nirvik Acharekar, home">NA</a>
         <nav className={menuOpen ? "site-nav is-open" : "site-nav"} aria-label="Main navigation">
           {navigation.map((item) => {
             const section = item.href.slice(1);
