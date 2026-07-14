@@ -13,9 +13,9 @@ export default function Home() {
       <FloatingNav />
       <main id="main-content">
         <Hero />
+        <Experience />
         <Projects />
         <About />
-        <Experience />
         <Contact />
       </main>
       <Footer />

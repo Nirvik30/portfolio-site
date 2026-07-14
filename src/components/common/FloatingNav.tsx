@@ -7,15 +7,15 @@ import { navigation } from "@/data/portfolio";
 export default function FloatingNav() {
   const [activeSection, setActiveSection] = useState("home");
   const [menuOpen, setMenuOpen] = useState(false);
-  const [theme, setTheme] = useState<"dark" | "light">("dark");
+  const [theme, setTheme] = useState<"dark" | "light">("light");
 
   useEffect(() => {
     const storedTheme = window.localStorage.getItem("portfolio-theme");
-    const initialTheme = storedTheme === "light" ? "light" : "dark";
+    const initialTheme = storedTheme === "dark" ? "dark" : "light";
     document.documentElement.dataset.theme = initialTheme;
     document
       .querySelector('meta[name="theme-color"]')
-      ?.setAttribute("content", initialTheme === "dark" ? "#0c0c0d" : "#e6eee9");
+      ?.setAttribute("content", initialTheme === "dark" ? "#151513" : "#f5f3ee");
     const frame = window.requestAnimationFrame(() => setTheme(initialTheme));
     return () => window.cancelAnimationFrame(frame);
   }, []);
@@ -55,7 +55,7 @@ export default function FloatingNav() {
     root.dataset.theme = nextTheme;
     document
       .querySelector('meta[name="theme-color"]')
-      ?.setAttribute("content", nextTheme === "dark" ? "#0c0c0d" : "#e6eee9");
+      ?.setAttribute("content", nextTheme === "dark" ? "#151513" : "#f5f3ee");
     window.localStorage.setItem("portfolio-theme", nextTheme);
     setTheme(nextTheme);
     window.setTimeout(() => root.classList.remove("theme-changing"), 420);
@@ -64,6 +64,7 @@ export default function FloatingNav() {
   return (
     <>
       <header className="site-header">
+        <a className="nav-home" href="#home" aria-label="Nirvik Acharekar, home">NA</a>
         <nav className={menuOpen ? "site-nav is-open" : "site-nav"} aria-label="Main navigation">
           {navigation.map((item) => {
             const section = item.href.slice(1);
@@ -80,28 +81,28 @@ export default function FloatingNav() {
             );
           })}
         </nav>
-
-        <button
-          className="menu-toggle"
-          type="button"
-          onClick={() => setMenuOpen((current) => !current)}
-          aria-label={menuOpen ? "Close navigation" : "Open navigation"}
-          aria-expanded={menuOpen}
-        >
-          {menuOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
-        </button>
+        <div className="nav-actions">
+          <button
+            className="theme-toggle"
+            type="button"
+            onClick={toggleTheme}
+            aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
+          >
+            <span key={theme} className="theme-toggle-icon" aria-hidden="true">
+              {theme === "dark" ? <Sun /> : <Moon />}
+            </span>
+          </button>
+          <button
+            className="menu-toggle"
+            type="button"
+            onClick={() => setMenuOpen((current) => !current)}
+            aria-label={menuOpen ? "Close navigation" : "Open navigation"}
+            aria-expanded={menuOpen}
+          >
+            {menuOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
+          </button>
+        </div>
       </header>
-
-      <button
-        className="theme-toggle theme-toggle-floating"
-        type="button"
-        onClick={toggleTheme}
-        aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
-      >
-        <span key={theme} className="theme-toggle-icon" aria-hidden="true">
-          {theme === "dark" ? <Sun /> : <Moon />}
-        </span>
-      </button>
     </>
   );
 }

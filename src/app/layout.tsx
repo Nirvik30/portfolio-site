@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { headers } from "next/headers";
-import { Geist, Geist_Mono, Manrope } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -10,11 +10,6 @@ const geistSans = Geist({
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-const manrope = Manrope({
-  variable: "--font-manrope",
   subsets: ["latin"],
 });
 
@@ -57,8 +52,8 @@ export async function generateMetadata(): Promise<Metadata> {
       images: [
         {
           url: socialImage,
-          width: 1732,
-          height: 908,
+          width: 1731,
+          height: 909,
           alt: "Nirvik Acharekar — Product designer & developer",
         },
       ],
@@ -74,8 +69,8 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export const viewport: Viewport = {
-  themeColor: "#0c0c0d",
-  colorScheme: "light",
+  themeColor: "#f5f3ee",
+  colorScheme: "light dark",
 };
 
 export default function RootLayout({
@@ -89,12 +84,12 @@ export default function RootLayout({
         <script
           dangerouslySetInnerHTML={{
             __html:
-              "try{if(localStorage.getItem('portfolio-theme')==='light'){document.documentElement.dataset.theme='light'}}catch(e){}",
+              "try{document.documentElement.dataset.theme=localStorage.getItem('portfolio-theme')==='dark'?'dark':'light'}catch(e){}",
           }}
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${manrope.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
       </body>

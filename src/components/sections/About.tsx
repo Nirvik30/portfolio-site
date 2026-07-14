@@ -3,41 +3,36 @@ import Reveal from "@/components/common/Reveal";
 export default function About() {
   return (
     <section id="about" className="about section-shell">
-      <Reveal className="section-heading">
-        <p className="section-index">02 / About</p>
-        <h2>About me</h2>
-        <p>A concise overview of my approach and education.</p>
-      </Reveal>
+      <div className="content-column">
+        <Reveal className="section-heading">
+          <p className="section-kicker">About</p>
+          <p>The thinking behind the work.</p>
+        </Reveal>
 
-      <div className="about-content">
-        <div className="about-intro">
+        <div className="about-grid">
           <Reveal>
             <p className="about-lead">
               I care about making technology clear, useful, and easy to trust.
             </p>
           </Reveal>
-          <Reveal delay={0.08}>
-            <div className="about-copy">
-              <p>
-                I&apos;m Nirvik, a product designer and full-stack developer based in
-                Mumbai. I enjoy working from the first product idea through design,
-                implementation, and release.
-              </p>
-              <p>
-                My approach is practical: understand the problem, remove unnecessary
-                complexity, and build a solution that stays easy to use and maintain.
-              </p>
-            </div>
+          <Reveal delay={0.06} className="about-copy">
+            <p>
+              I enjoy working from the first product idea through design,
+              implementation, and release.
+            </p>
+            <p>
+              My approach is practical: understand the problem, remove unnecessary
+              complexity, and build something that stays easy to use and maintain.
+            </p>
           </Reveal>
         </div>
 
         <Reveal className="education-card">
+          <p className="education-label">Education</p>
           <div>
-            <span>Education</span>
-            <span>University of Mumbai</span>
+            <h2>Bachelor of Engineering</h2>
+            <p>Information Technology · University of Mumbai</p>
           </div>
-          <h3>Bachelor of Engineering</h3>
-          <p>Information Technology</p>
           <div className="education-meta">
             <span>2026</span>
             <strong>8.02 CGPA</strong>

@@ -1,48 +1,45 @@
-import { ArrowDown, ArrowUpRight, Code2, Mail } from "lucide-react";
+import { ArrowDownRight, ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/common/Reveal";
 import { links } from "@/data/portfolio";
 
 export default function Hero() {
   return (
     <section id="home" className="hero section-shell">
-      <div className="hero-copy">
-        <Reveal>
-          <p className="eyebrow">Product designer · Full-stack developer</p>
+      <div className="content-column">
+        <Reveal className="hero-mark">
+          <span aria-hidden="true">NA</span>
+          <i />
         </Reveal>
 
-        <Reveal delay={0.08}>
-          <h1>Nirvik Acharekar</h1>
+        <Reveal delay={0.06}>
+          <h1>
+            I&apos;m Nirvik Acharekar — a product-minded developer and designer.
+          </h1>
         </Reveal>
 
-        <Reveal delay={0.16} className="hero-intro-row">
+        <Reveal delay={0.12}>
           <p className="hero-intro">
-            I design and build clear, dependable digital products from Mumbai.
+            I turn complex product requirements into clear interfaces and dependable
+            systems. Based in Mumbai, I work across design, frontend, and backend.
           </p>
-          <div className="hero-actions">
-            <a className="button button-dark" href="#work">
-              <span>View selected work</span><ArrowDown aria-hidden="true" />
-            </a>
-            <a className="text-link" href={links.gmail} target="_blank" rel="noreferrer">
-              Contact me <ArrowUpRight aria-hidden="true" />
-            </a>
-          </div>
         </Reveal>
-      </div>
 
-      <div className="hero-footer" aria-label="Professional summary">
-        <div><span>Based in</span><strong>Mumbai, India</strong></div>
-        <div><span>Current role</span><strong>Full-stack developer intern</strong></div>
-        <div className="hero-socials">
-          <span>Connect</span>
-          <strong>
-            <a href={links.github} target="_blank" rel="noreferrer">
-              <Code2 aria-hidden="true" /> GitHub
-            </a>
-            <a href={links.gmail} target="_blank" rel="noreferrer">
-              <Mail aria-hidden="true" /> Email
-            </a>
-          </strong>
-        </div>
+        <Reveal delay={0.18} className="hero-links">
+          <a href={links.gmail} target="_blank" rel="noreferrer">
+            Email <ArrowUpRight aria-hidden="true" />
+          </a>
+          <a href={links.github} target="_blank" rel="noreferrer">
+            GitHub <ArrowUpRight aria-hidden="true" />
+          </a>
+          <a href="#work">
+            Selected work <ArrowDownRight aria-hidden="true" />
+          </a>
+        </Reveal>
+
+        <Reveal delay={0.22} className="hero-note">
+          <span>Available for thoughtful product work</span>
+          <span>Mumbai, India</span>
+        </Reveal>
       </div>
     </section>
   );

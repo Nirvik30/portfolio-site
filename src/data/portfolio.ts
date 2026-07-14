@@ -1,8 +1,8 @@
 export const navigation = [
   { label: "Home", href: "#home" },
+  { label: "Experience", href: "#experience" },
   { label: "Work", href: "#work" },
   { label: "About", href: "#about" },
-  { label: "Experience", href: "#experience" },
   { label: "Contact", href: "#contact" },
 ] as const;
 
@@ -11,42 +11,42 @@ export const projects = [
     index: "01",
     title: "NH Studioz",
     category: "Media platform",
-    description: "Large-scale film catalog and content discovery platform.",
+    description: "A clear, discovery-led experience for navigating a large film catalogue.",
     href: "https://nhstudioz.tv",
   },
   {
     index: "02",
     title: "MRC Hobbies",
     category: "Ecommerce",
-    description: "High-traffic storefront for hobby products and parts.",
+    description: "A focused storefront for discovering, evaluating, and buying hobby products.",
     href: "https://mrchobbies.com",
   },
   {
     index: "03",
     title: "Movie Operations CMS",
     category: "Internal product",
-    description: "Production CMS managing a 10k+ film database.",
+    description: "Operational tooling for managing a production catalogue of more than 10,000 films.",
     href: "https://cms.voidr.in/app/dashboard",
   },
   {
     index: "04",
     title: "Commerce API Backend",
     category: "Backend infrastructure",
-    description: "Custom backend for catalog, cart, and fulfillment operations.",
+    description: "Custom commerce infrastructure spanning catalogue, cart, and fulfilment operations.",
     href: "https://backend.mrchobbies.com/app/",
   },
   {
     index: "05",
     title: "Dope Raider",
     category: "Web3 game",
-    description: "Wallet-aware browser game designed for repeat play.",
+    description: "A wallet-aware browser game shaped around quick sessions and repeat play.",
     href: "https://doperaider.com",
   },
   {
     index: "06",
     title: "Orcaa Designs",
     category: "Creative studio website",
-    description: "Motion-led portfolio website for a multidisciplinary studio.",
+    description: "A motion-led portfolio experience for a multidisciplinary creative studio.",
     href: "https://www.orcaadesigns.com/",
   },
 ] as const;
