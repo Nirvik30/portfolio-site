@@ -25,18 +25,19 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     metadataBase: new URL(origin),
     title: {
-      default: "Nirvik Acharekar — Full-stack developer",
+      default: "Nirvik Acharekar — Product designer & developer",
       template: "%s — Nirvik Acharekar",
     },
     description:
-      "Portfolio of Nirvik Acharekar, a product-minded full-stack developer in Mumbai building thoughtful digital products.",
+      "Portfolio of Nirvik Acharekar, a product designer and developer in Mumbai shaping clear, reliable digital products.",
     applicationName: "Nirvik Acharekar",
     authors: [{ name: "Nirvik Acharekar", url: "https://nirvikach.me" }],
     creator: "Nirvik Acharekar",
     keywords: [
       "Nirvik Acharekar",
+      "product designer",
+      "design engineer",
       "full-stack developer",
-      "product engineer",
       "Next.js developer",
       "Mumbai",
     ],
@@ -45,22 +46,22 @@ export async function generateMetadata(): Promise<Metadata> {
       type: "website",
       locale: "en_IN",
       url: origin,
-      title: "Nirvik Acharekar — Full-stack developer",
-      description: "Thoughtful digital products, from interface to infrastructure.",
+      title: "Nirvik Acharekar — Product designer & developer",
+      description: "Design engineering for clear, reliable digital products.",
       siteName: "Nirvik Acharekar",
       images: [
         {
           url: socialImage,
-          width: 1200,
-          height: 627,
-          alt: "Nirvik Acharekar — Full-stack developer",
+          width: 1731,
+          height: 909,
+          alt: "Nirvik Acharekar — Product designer & developer",
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: "Nirvik Acharekar — Full-stack developer",
-      description: "Thoughtful digital products, from interface to infrastructure.",
+      title: "Nirvik Acharekar — Product designer & developer",
+      description: "Design engineering for clear, reliable digital products.",
       images: [socialImage],
     },
     robots: { index: true, follow: true },
@@ -68,7 +69,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export const viewport: Viewport = {
-  themeColor: "#f2f0e8",
+  themeColor: "#f7f7f4",
   colorScheme: "light",
 };
 

@@ -37,9 +37,9 @@ export default function FloatingNav() {
 
   return (
     <header className="site-header">
-      <a className="brand-mark" href="#home" aria-label="Nirvik Acharekar, home">
-        <span>NA</span>
-        <span className="brand-copy">Nirvik Acharekar</span>
+      <a className="nav-home" href="#home" aria-label="Back to home">
+        <span aria-hidden="true" />
+        Portfolio / 2026
       </a>
 
       <nav className={menuOpen ? "site-nav is-open" : "site-nav"} aria-label="Main navigation">

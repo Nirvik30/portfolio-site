@@ -11,56 +11,48 @@ export default function Hero() {
         <Reveal>
           <p className="eyebrow">
             <span className="status-dot" />
-            Full-stack developer · Mumbai, India
+            Nirvik Acharekar · Product designer &amp; developer
           </p>
         </Reveal>
 
         <Reveal delay={0.08}>
           <h1>
-            I turn ambitious ideas into <em>useful</em> digital products.
+            Design engineering for <span>digital products.</span>
           </h1>
         </Reveal>
 
         <Reveal delay={0.16} className="hero-intro-row">
           <p className="hero-intro">
-            I&apos;m Nirvik — a product-minded developer building fast, thoughtful
-            experiences from interface to infrastructure.
+            I shape clear product experiences and build the systems behind them —
+            from early direction to production.
           </p>
           <div className="hero-actions">
             <a className="button button-dark" href="#work">
-              Explore selected work <ArrowDownRight aria-hidden="true" />
+              View selected projects <ArrowDownRight aria-hidden="true" />
             </a>
             <a className="text-link" href={links.email}>
-              Start a conversation <ArrowUpRight aria-hidden="true" />
+              Get in touch <ArrowUpRight aria-hidden="true" />
             </a>
           </div>
         </Reveal>
       </div>
 
-      <Reveal delay={0.22} className="hero-visual-wrap">
-        <div className="hero-visual" aria-label="Currently focused on thoughtful product engineering">
-          <div className="orbit orbit-outer" />
-          <div className="orbit orbit-inner" />
-          <div className="orbit-core">
-            <span>Design</span>
-            <strong>×</strong>
-            <span>Engineering</span>
-          </div>
-          <div className="signal-card signal-card-top">
-            <span>Current focus</span>
-            <strong>Useful software</strong>
-          </div>
-          <div className="signal-card signal-card-bottom">
-            <span>Approach</span>
-            <strong>Think → Build → Refine</strong>
-          </div>
+      <Reveal delay={0.22} className="hero-aside">
+        <div className="hero-aside-topline">
+          <span>Practice</span>
+          <span>Mumbai / India</span>
         </div>
+        <ol>
+          <li><span>01</span> Product direction</li>
+          <li><span>02</span> Interface design</li>
+          <li><span>03</span> Full-stack delivery</li>
+        </ol>
+        <p>Clear systems. Thoughtful interactions. Reliable execution.</p>
       </Reveal>
 
       <div className="hero-footer" aria-label="Areas of practice">
-        <span>01 / Product thinking</span>
-        <span>02 / Interface engineering</span>
-        <span>03 / Full-stack development</span>
+        <span>Independent practice / 2026</span>
+        <span>Available for select collaborations</span>
       </div>
     </section>
   );
