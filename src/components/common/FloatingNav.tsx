@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ArrowUpRight, Menu, Moon, Sun, X } from "lucide-react";
-import { links, navigation } from "@/data/portfolio";
+import { Menu, Moon, Sun, X } from "lucide-react";
+import { navigation } from "@/data/portfolio";
 
 export default function FloatingNav() {
   const [activeSection, setActiveSection] = useState("home");
@@ -15,7 +15,7 @@ export default function FloatingNav() {
     document.documentElement.dataset.theme = initialTheme;
     document
       .querySelector('meta[name="theme-color"]')
-      ?.setAttribute("content", initialTheme === "dark" ? "#0c0c0d" : "#e9e3d8");
+      ?.setAttribute("content", initialTheme === "dark" ? "#0c0c0d" : "#e6eee9");
     const frame = window.requestAnimationFrame(() => setTheme(initialTheme));
     return () => window.cancelAnimationFrame(frame);
   }, []);
@@ -55,60 +55,31 @@ export default function FloatingNav() {
     root.dataset.theme = nextTheme;
     document
       .querySelector('meta[name="theme-color"]')
-      ?.setAttribute("content", nextTheme === "dark" ? "#0c0c0d" : "#e9e3d8");
+      ?.setAttribute("content", nextTheme === "dark" ? "#0c0c0d" : "#e6eee9");
     window.localStorage.setItem("portfolio-theme", nextTheme);
     setTheme(nextTheme);
     window.setTimeout(() => root.classList.remove("theme-changing"), 420);
   };
 
   return (
-    <header className="site-header">
-      <a className="nav-home" href="#home" aria-label="Back to home">
-        Portfolio
-      </a>
-
-      <nav className={menuOpen ? "site-nav is-open" : "site-nav"} aria-label="Main navigation">
-        {navigation.map((item) => {
-          const section = item.href.slice(1);
-          return (
-            <a
-              key={item.href}
-              href={item.href}
-              className={activeSection === section ? "is-active" : undefined}
-              aria-current={activeSection === section ? "page" : undefined}
-              onClick={() => setMenuOpen(false)}
-            >
-              {item.label}
-            </a>
-          );
-        })}
-      </nav>
-
-      <div className="nav-actions">
-        <a
-          className="nav-social"
-          href={links.github}
-          target="_blank"
-          rel="noreferrer"
-          aria-label="GitHub profile"
-        >
-          <span aria-hidden="true">GH</span>
-        </a>
-
-        <button
-          className="theme-toggle"
-          type="button"
-          onClick={toggleTheme}
-          aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
-        >
-          <span key={theme} className="theme-toggle-icon" aria-hidden="true">
-            {theme === "dark" ? <Sun /> : <Moon />}
-          </span>
-        </button>
-
-        <a className="header-cta" href={links.gmail} target="_blank" rel="noreferrer">
-          Let&apos;s talk <ArrowUpRight aria-hidden="true" />
-        </a>
+    <>
+      <header className="site-header">
+        <nav className={menuOpen ? "site-nav is-open" : "site-nav"} aria-label="Main navigation">
+          {navigation.map((item) => {
+            const section = item.href.slice(1);
+            return (
+              <a
+                key={item.href}
+                href={item.href}
+                className={activeSection === section ? "is-active" : undefined}
+                aria-current={activeSection === section ? "page" : undefined}
+                onClick={() => setMenuOpen(false)}
+              >
+                {item.label}
+              </a>
+            );
+          })}
+        </nav>
 
         <button
           className="menu-toggle"
@@ -119,7 +90,18 @@ export default function FloatingNav() {
         >
           {menuOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
         </button>
-      </div>
-    </header>
+      </header>
+
+      <button
+        className="theme-toggle theme-toggle-floating"
+        type="button"
+        onClick={toggleTheme}
+        aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
+      >
+        <span key={theme} className="theme-toggle-icon" aria-hidden="true">
+          {theme === "dark" ? <Sun /> : <Moon />}
+        </span>
+      </button>
+    </>
   );
 }

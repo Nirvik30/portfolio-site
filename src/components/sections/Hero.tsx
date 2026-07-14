@@ -1,4 +1,4 @@
-import { ArrowDown, ArrowUpRight } from "lucide-react";
+import { ArrowDown, ArrowUpRight, Code2, Mail } from "lucide-react";
 import Reveal from "@/components/common/Reveal";
 import { links } from "@/data/portfolio";
 
@@ -35,8 +35,12 @@ export default function Hero() {
         <div className="hero-socials">
           <span>Connect</span>
           <strong>
-            <a href={links.github} target="_blank" rel="noreferrer">GitHub</a>
-            <a href={links.gmail} target="_blank" rel="noreferrer">Email</a>
+            <a href={links.github} target="_blank" rel="noreferrer">
+              <Code2 aria-hidden="true" /> GitHub
+            </a>
+            <a href={links.gmail} target="_blank" rel="noreferrer">
+              <Mail aria-hidden="true" /> Email
+            </a>
           </strong>
         </div>
       </div>
