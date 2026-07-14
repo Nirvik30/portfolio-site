@@ -7,11 +7,11 @@ import { navigation } from "@/data/portfolio";
 export default function FloatingNav() {
   const [activeSection, setActiveSection] = useState("home");
   const [menuOpen, setMenuOpen] = useState(false);
-  const [theme, setTheme] = useState<"dark" | "light">("light");
+  const [theme, setTheme] = useState<"dark" | "light">("dark");
 
   useEffect(() => {
     const storedTheme = window.localStorage.getItem("portfolio-theme");
-    const initialTheme = storedTheme === "dark" ? "dark" : "light";
+    const initialTheme = storedTheme === "light" ? "light" : "dark";
     document.documentElement.dataset.theme = initialTheme;
     document
       .querySelector('meta[name="theme-color"]')
