@@ -6,7 +6,7 @@ export default function Footer() {
     <footer className="site-footer section-shell">
       <div>
         <strong>Nirvik Acharekar</strong>
-        <span>Product-minded full-stack developer.</span>
+        <span>Product designer &amp; developer.</span>
       </div>
       <nav aria-label="Footer navigation">
         {navigation.slice(1).map((item) => (

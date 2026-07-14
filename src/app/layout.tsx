@@ -52,8 +52,8 @@ export async function generateMetadata(): Promise<Metadata> {
       images: [
         {
           url: socialImage,
-          width: 1731,
-          height: 909,
+          width: 1734,
+          height: 907,
           alt: "Nirvik Acharekar — Product designer & developer",
         },
       ],

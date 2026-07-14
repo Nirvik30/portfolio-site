@@ -6,31 +6,41 @@ export default function About() {
     <section id="about" className="about section-shell">
       <Reveal className="section-heading">
         <p className="section-index">02 / About</p>
-        <h2>Clear thinking.<br />Careful execution.</h2>
+        <h2>About me</h2>
+        <p>A short introduction to how I work and what I bring to a product.</p>
       </Reveal>
 
       <div className="about-intro">
         <Reveal>
           <p className="about-lead">
-            Good software should feel obvious to the person using it — even
-            when the system behind it is anything but.
+            I care about making technology clear, useful, and easy to trust.
           </p>
         </Reveal>
         <Reveal delay={0.08}>
           <div className="about-copy">
             <p>
-              I work across design and development to make products that are
-              useful, expressive, and maintainable. That means asking the right
-              questions early, sweating the interaction details, and keeping
-              the implementation honest.
+              I&apos;m Nirvik, a product designer and full-stack developer based in
+              Mumbai. I enjoy working from the first product idea through design,
+              implementation, and release.
             </p>
             <p>
-              My toolkit spans frontend craft, backend systems, data, and rapid
-              prototyping — chosen to fit the problem, never the trend.
+              My approach is practical: understand the problem, remove unnecessary
+              complexity, and build a solution that can grow without becoming hard
+              to use or maintain.
             </p>
           </div>
         </Reveal>
       </div>
+
+      <Reveal className="education-card">
+        <div>
+          <span>Education</span>
+          <span>Undergraduate degree</span>
+        </div>
+        <h3>Bachelor of Engineering</h3>
+        <p>Information Technology</p>
+        <strong>8.02 CGPA</strong>
+      </Reveal>
 
       <div className="capability-grid">
         {capabilities.map((capability, index) => (
@@ -45,7 +55,7 @@ export default function About() {
       <Reveal className="stack-panel">
         <div className="stack-heading">
           <span>Core toolkit</span>
-          <span>Always evolving</span>
+          <span>Selected technologies</span>
         </div>
         <ul>
           {stack.map((technology) => (

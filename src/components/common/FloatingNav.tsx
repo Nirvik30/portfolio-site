@@ -38,8 +38,7 @@ export default function FloatingNav() {
   return (
     <header className="site-header">
       <a className="nav-home" href="#home" aria-label="Back to home">
-        <span aria-hidden="true" />
-        Portfolio / 2026
+        Portfolio
       </a>
 
       <nav className={menuOpen ? "site-nav is-open" : "site-nav"} aria-label="Main navigation">
@@ -59,8 +58,8 @@ export default function FloatingNav() {
         })}
       </nav>
 
-      <a className="header-cta" href={links.email}>
-        Let&apos;s talk <ArrowUpRight aria-hidden="true" />
+      <a className="header-cta" href={links.gmail} target="_blank" rel="noreferrer">
+        Email me <ArrowUpRight aria-hidden="true" />
       </a>
 
       <button
