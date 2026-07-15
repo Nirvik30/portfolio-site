@@ -21,7 +21,6 @@ export default function Projects() {
                 rel="noreferrer"
                 aria-label={`View ${project.title} project`}
               >
-                <span className="project-index">{project.index}</span>
                 <div className="project-identity">
                   <h2>{project.title}</h2>
                   <span>{project.category}</span>

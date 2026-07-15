@@ -24,35 +24,36 @@ export default function FloatingNav() {
     const sections = navigation
       .map(({ href }) => document.querySelector<HTMLElement>(href))
       .filter((section): section is HTMLElement => Boolean(section));
+    let frame = 0;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
+    const updateActiveSection = () => {
+      window.cancelAnimationFrame(frame);
+      frame = window.requestAnimationFrame(() => {
         if (window.scrollY <= 96) {
           setActiveSection("home");
           return;
         }
 
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        const atPageBottom =
+          window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+        const currentSection = atPageBottom
+          ? sections.at(-1)
+          : sections.findLast(
+              (section) => section.offsetTop <= window.scrollY + window.innerHeight * 0.38,
+            );
 
-        if (visible?.target.id) setActiveSection(visible.target.id);
-      },
-      { rootMargin: "-30% 0px -55%", threshold: [0, 0.2, 0.5, 0.8] },
-    );
-
-    sections.forEach((section) => observer.observe(section));
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    const keepHomeActiveAtTop = () => {
-      if (window.scrollY <= 96) setActiveSection("home");
+        if (currentSection?.id) setActiveSection(currentSection.id);
+      });
     };
 
-    keepHomeActiveAtTop();
-    window.addEventListener("scroll", keepHomeActiveAtTop, { passive: true });
-    return () => window.removeEventListener("scroll", keepHomeActiveAtTop);
+    updateActiveSection();
+    window.addEventListener("scroll", updateActiveSection, { passive: true });
+    window.addEventListener("resize", updateActiveSection);
+    return () => {
+      window.cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", updateActiveSection);
+      window.removeEventListener("resize", updateActiveSection);
+    };
   }, []);
 
   useEffect(() => {
